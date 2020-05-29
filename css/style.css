@@ -1,0 +1,21 @@
+.opcional{
+    display: inline;
+    color: grey;
+}
+
+.carros{
+    width: 25%;
+    height: 100%;
+    color: white;
+    background-color:rgb(83, 82, 82);
+    padding:2%;
+    border-radius:30px;
+    box-sizing:border-box;
+    border-style:solid;
+}
+h3{
+    text-align:center;
+}
+h2{
+    text-align:center;
+}
