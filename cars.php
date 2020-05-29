@@ -17,13 +17,11 @@
     $sql2 = "SELECT * FROM cars WHERE user_id = '$user_id'";
     $result2 = mysqli_query($db_connect, $sql2);
     $dados = mysqli_fetch_array($result);
-    $carros = mysqli_fetch_array($result2);
     $_SESSION['first_name'] = $dados['first_name'];
     $_SESSION['last_name'] = $dados['last_name'];
     $first_name = $dados['first_name'];
     $last_name = $dados['last_name'];
 
-    
 ?>
 
 
@@ -35,7 +33,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
+
         .carros{
+            display: block;
             width: 25%;
             height: 100%;
             color: white;
@@ -60,26 +60,24 @@
     <?php
         if(mysqli_num_rows($result2) > 0){
             while($row = mysqli_fetch_assoc($result2)){
-                $car_id = $carros['car_id'];
-                $chassi = $carros['chassi'];
-                $placa = $carros['placa'];
-                $renavam = $carros['renavam'];
-                $marca = $carros['marca'];
-                $modelo = $carros['modelo'];
-                $procedencia = $carros['procedencia'];
-                $data_compra = $carros['data_de_compra'];
-                $ipva = $carros['ipva'];
-                $dpvat = $carros['dpvat'];
-                $multa = $carros['multa'];
-                $valor_compra = $carros['valor_compra'];?>
+                $car_id = $row['car_id'];
+                $chassi = $row['chassi'];
+                $placa = $row['placa'];
+                $renavam = $row['renavam'];
+                $marca = $row['marca'];
+                $modelo = $row['modelo'];
+                $procedencia = $row['procedencia'];
+                $data_compra = $row['data_de_compra'];
+                $ipva = $row['ipva'];
+                $dpvat = $row['dpvat'];
+                $multa = $row['multa'];
+                $valor_compra = $row['valor_compra'];?>
 
-                <a href="http://localhost/MaRCELO/car.php">
-                    <div class="carros">
-                        <?php
-                            echo "<br><h2>Modelo: " . ucfirst($modelo) . "</h2>";
-                            echo "<br><h3>Placa: $placa<h3>";   
-                        ?>
-                    </div>
+                <a href="http://localhost/Projects-php/concession-ria/car.php" class="carros">       
+                    <?php
+                        echo "<br><h2>Modelo: " . ucfirst($modelo) . "</h2>";
+                        echo "<br><h3>Placa: $placa<h3>";   
+                    ?>
                 </a>
                 <?php
             }
